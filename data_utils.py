@@ -464,9 +464,9 @@ def kdd99_test(seq_length, seq_step, num_signals):
     return samples, labels, index
 
 
-def mimic(year, seq_length, seq_step, num_signals):
-    train = np.array(np.load('./data/mimic_train_'+year+'.npy'), dtype=float)
-    print('load mimic_train from .npy')
+def sepsis(year, seq_length, seq_step, num_signals):
+    train = np.array(np.load('./data/sepsis_train_'+year+'.npy'), dtype=float)
+    print('load sepsis_train from .npy')
     m, n = train.shape  # m=562387, n=35
     # normalization
     for i in range(n - 1):
@@ -516,9 +516,9 @@ def mimic(year, seq_length, seq_step, num_signals):
 
     return samples, labels
 
-def mimic_test(year, seq_length, seq_step, num_signals):
-    test = np.array(np.load('./data/mimic_test_'+year+'.npy'), dtype=float)
-    print('load mimic_test from .npy')
+def sepsis_test(year, seq_length, seq_step, num_signals):
+    test = np.array(np.load('./data/sepsis_test_'+year+'.npy'), dtype=float)
+    print('load sepsis_test from .npy')
 
     m, n = test.shape  # m1=494021, n1=35
 
@@ -571,9 +571,9 @@ def mimic_test(year, seq_length, seq_step, num_signals):
 
     return samples, labels, index
 
-def mimic_patient_wise(year, patient, seq_length, seq_step, num_signals):
-    train = np.array(np.load('./data/mimic_train_'+year+'_'+patient+'.npy'), dtype=float)
-    print('load mimic_train from .npy')
+def sepsis_patient_wise(year, patient, seq_length, seq_step, num_signals):
+    train = np.array(np.load('./data/sepsis_train_'+year+'_'+patient+'.npy'), dtype=float)
+    print('load sepsis_train from .npy')
     m, n = train.shape  # m=562387, n=35
     # normalization
     for i in range(n - 1):
@@ -622,9 +622,9 @@ def mimic_patient_wise(year, patient, seq_length, seq_step, num_signals):
     labels = bb
     return samples, labels
 
-def mimic_test_patient_wise(year, patient, seq_length, seq_step, num_signals):
-    test = np.array(np.load('./data/mimic_test_'+year+'_'+patient+'.npy'), dtype=float)
-    print('load mimic_test from .npy')
+def sepsis_test_patient_wise(year, patient, seq_length, seq_step, num_signals):
+    test = np.array(np.load('./data/sepsis_test_'+year+'_'+patient+'.npy'), dtype=float)
+    print('load sepsis_test from .npy')
 
     m, n = test.shape  # m1=494021, n1=35
 
@@ -781,14 +781,14 @@ def get_data(data_type, seq_length, seq_step, num_signals, sub_id, eval_single, 
         samples, labels = wadi(seq_length, seq_step, num_signals)
     elif data_type == 'wadi_test':
         samples, labels, index = wadi_test(seq_length, seq_step, num_signals)
-    elif data_type == 'mimic':
-        samples, labels = mimic(year, seq_length, seq_step, num_signals)
-    elif data_type == 'mimic_test':
-        samples, labels, index = mimic_test(year, seq_length, seq_step, num_signals)
-    elif data_type == 'mimic_patient_wise':
-        samples, labels = mimic_patient_wise(year, patient, seq_length, seq_step, num_signals)
-    elif data_type == 'mimic_test_patient_wise':
-        samples, labels, index = mimic_test_patient_wise(year, patient, seq_length, seq_step, num_signals)
+    elif data_type == 'sepsis':
+        samples, labels = sepsis(year, seq_length, seq_step, num_signals)
+    elif data_type == 'sepsis_test':
+        samples, labels, index = sepsis_test(year, seq_length, seq_step, num_signals)
+    elif data_type == 'sepsis_patient_wise':
+        samples, labels = sepsis_patient_wise(year, patient, seq_length, seq_step, num_signals)
+    elif data_type == 'sepsis_test_patient_wise':
+        samples, labels, index = sepsis_test_patient_wise(year, patient, seq_length, seq_step, num_signals)
     else:
         raise ValueError(data_type)
     print('Generated/loaded', len(samples), 'samples from data-type', data_type)
