@@ -21,7 +21,7 @@ with open('experiments/settings/sepsis.txt', 'w') as train_file:
 
 print('Training:')
 os.makedirs('output/most')
-os.system('python RGAN.py --settings_file mimic > ./output/most/train.txt')
+os.system('python RGAN.py --settings_file sepsis > ./output/most/train.txt')
 
 # with is like your try .. finally block in this case
 with open('experiments/settings/sepsis_test.txt', 'r') as test_file:
@@ -37,7 +37,7 @@ for cv in range(5):
         test_file.writelines(test_data)
 
     print('CV: ' + str(cv))
-    os.system('python AD.py --settings_file mimic_test > ./output/most/test_most_' + str(cv) + '.txt')
+    os.system('python AD.py --settings_file sepsis_test > ./output/most/test_most_' + str(cv) + '.txt')
 
 out = open("./output/most/Results.csv", "w")
 out.write('CV,Accuracy,Precision,Recall,F1\n')
@@ -75,7 +75,7 @@ with open('experiments/settings/sepsis.txt', 'w') as train_file:
 
 print('Training:')
 os.makedirs('output/least')
-os.system('python RGAN.py --settings_file mimic > ./output/least/train.txt')
+os.system('python RGAN.py --settings_file sepsis > ./output/least/train.txt')
 
 # with is like your try .. finally block in this case
 with open('experiments/settings/sepsis_test.txt', 'r') as test_file:
@@ -91,7 +91,7 @@ for cv in range(5):
         test_file.writelines(test_data)
 
     print('CV: ' + str(cv))
-    os.system('python AD.py --settings_file mimic_test > ./output/least/test_least_' + str(cv) + '.txt')
+    os.system('python AD.py --settings_file sepsis_test > ./output/least/test_least_' + str(cv) + '.txt')
 
 
 out = open("./output/least/Results.csv", "w")
@@ -131,7 +131,7 @@ with open('experiments/settings/sepsis.txt', 'w') as train_file:
 
 print('Training:')
 os.makedirs('output/all')
-os.system('python RGAN.py --settings_file mimic > ./output/all/train.txt')
+os.system('python RGAN.py --settings_file sepsis > ./output/all/train.txt')
 
 # with is like your try .. finally block in this case
 with open('experiments/settings/sepsis_test.txt', 'r') as test_file:
@@ -147,7 +147,7 @@ for cv in range(5):
         test_file.writelines(test_data)
 
     print('CV: ' + str(cv))
-    os.system('python AD.py --settings_file mimic_test > ./output/all/test_all_' + str(cv) + '.txt')
+    os.system('python AD.py --settings_file sepsis_test > ./output/all/test_all_' + str(cv) + '.txt')
 
 
 out = open("./output/all/Results.csv", "w")
@@ -189,7 +189,7 @@ for run in range(5):
 
     print('Training:')
     os.makedirs('output/samples')
-    os.system('python RGAN.py --settings_file mimic > ./output/samples/train_'+ str(run) + '.txt')
+    os.system('python RGAN.py --settings_file sepsis > ./output/samples/train_'+ str(run) + '.txt')
 
     # with is like your try .. finally block in this case
     with open('experiments/settings/sepsis_test.txt', 'r') as test_file:
@@ -205,7 +205,7 @@ for run in range(5):
             test_file.writelines(test_data)
 
         print('CV: ' + str(cv))
-        os.system('python AD.py --settings_file mimic_test > ./output/samples/test_run_' + str(run) + '_' + str(cv) + '.txt')
+        os.system('python AD.py --settings_file sepsis_test > ./output/samples/test_run_' + str(run) + '_' + str(cv) + '.txt')
 
 
 out = open("./output/samples/Results.csv", "w")
