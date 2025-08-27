@@ -21,8 +21,7 @@ with open('experiments/settings/sepsis.txt', 'w') as train_file:
 
 print('Training:')
 os.makedirs('output/most')
-print('Test: 1')
-os.system('python RGAN.py --settings_file sepsis')# > ./output/most/train.txt')
+os.system('python RGAN.py --settings_file sepsis > ./output/most/train.txt')
 
 # with is like your try .. finally block in this case
 with open('experiments/settings/sepsis_test.txt', 'r') as test_file:

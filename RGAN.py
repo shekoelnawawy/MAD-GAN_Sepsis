@@ -17,39 +17,36 @@ from math import floor
 from mmd import rbf_mmd2, median_pairwise_distance, mix_rbf_mmd2_and_ratio
 
 begin = time()
-print('Test: 2')
+
 tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
-print('Test: 3')
+
 # Nawawy's start
 tf.compat.v1.disable_eager_execution()
 # Nawawy's end
-print('Test: 4')
+
 # --- get settings --- #
 # parse command line arguments, or use defaults
 parser = utils.rgan_options_parser()
 settings = vars(parser.parse_args())
-print('Test: 5')
 # if a settings file is specified, it overrides command line arguments/defaults
 if settings['settings_file']: settings = utils.load_settings_from_file(settings)
-print('Test: 6')
+
 # --- get data, split --- #
 # samples, pdf, labels = data_utils.get_data(settings)
 data_path = './experiments/data/' + settings['data_load_from'] + '.data.npy'
-print('Test: 7')
 print('Loading data from', data_path)
-print('Test: 8')
 settings["eval_an"] = False
 settings["eval_single"] = False
 # samples, labels, index = data_utils.get_data(settings["data"], settings["seq_length"], settings["seq_step"],
 #                                              settings["num_signals"], settings['sub_id'], settings["eval_single"],
 #                                              settings["eval_an"], data_path, settings["year"])
-print('Test: 9')
+
 # Nawawy's start
 samples, labels, index = data_utils.get_data(settings["data"], settings["seq_length"], settings["seq_step"],
                                              settings["num_signals"], settings['sub_id'], settings["eval_single"],
                                              settings["eval_an"], data_path, settings["year"], settings["patient"])
 # Nawawy's end
-print('Test: 10')
+
 print('samples_size:',samples.shape)
 # -- number of variables -- #
 num_variables = samples.shape[2]
