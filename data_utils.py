@@ -465,7 +465,7 @@ def kdd99_test(seq_length, seq_step, num_signals):
 
 
 def sepsis(year, seq_length, seq_step, num_signals):
-    train = np.array(np.load('./data/sepsis_train_'+year+'.npy', allow_pickle=True), dtype=float)
+    train = np.array(np.load('./data/sepsis_train_'+year+'.npy'), dtype=float)
     print('load sepsis_train from .npy')
     m, n = train.shape  # m=562387, n=35
     # normalization
@@ -517,7 +517,7 @@ def sepsis(year, seq_length, seq_step, num_signals):
     return samples, labels
 
 def sepsis_test(year, seq_length, seq_step, num_signals):
-    test = np.array(np.load('./data/sepsis_test_'+year+'.npy', allow_pickle=True), dtype=float)
+    test = np.array(np.load('./data/sepsis_test_'+year+'.npy'), dtype=float)
     print('load sepsis_test from .npy')
 
     m, n = test.shape  # m1=494021, n1=35
@@ -572,7 +572,7 @@ def sepsis_test(year, seq_length, seq_step, num_signals):
     return samples, labels, index
 
 def sepsis_patient_wise(year, patient, seq_length, seq_step, num_signals):
-    train = np.array(np.load('./data/sepsis_train_'+year+'_'+patient+'.npy', allow_pickle=True), dtype=float)
+    train = np.array(np.load('./data/sepsis_train_'+year+'_'+patient+'.npy'), dtype=float)
     print('load sepsis_train from .npy')
     m, n = train.shape  # m=562387, n=35
     # normalization
@@ -623,7 +623,7 @@ def sepsis_patient_wise(year, patient, seq_length, seq_step, num_signals):
     return samples, labels
 
 def sepsis_test_patient_wise(year, patient, seq_length, seq_step, num_signals):
-    test = np.array(np.load('./data/sepsis_test_'+year+'_'+patient+'.npy', allow_pickle=True), dtype=float)
+    test = np.array(np.load('./data/sepsis_test_'+year+'_'+patient+'.npy'), dtype=float)
     print('load sepsis_test from .npy')
 
     m, n = test.shape  # m1=494021, n1=35
