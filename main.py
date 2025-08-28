@@ -1,10 +1,7 @@
 import os
 import numpy as np
 
-# if os.path.exists('./output'):
-#     os.system('"yes" yes | rm -r ./output')
-#
-# os.makedirs('output')
+# os.makedirs('output', exist_ok=False)
 #
 # # with is like your try .. finally block in this case
 # with open('experiments/settings/sepsis.txt', 'r') as train_file:
@@ -20,7 +17,7 @@ import numpy as np
 #     train_file.writelines(train_data)
 #
 # print('Training:')
-# os.makedirs('output/most')
+# os.makedirs('output/most', exist_ok=True)
 # os.system('python RGAN.py --settings_file sepsis > ./output/most/train.txt')
 #
 # # with is like your try .. finally block in this case
@@ -74,7 +71,7 @@ import numpy as np
 #     train_file.writelines(train_data)
 #
 # print('Training:')
-# os.makedirs('output/least')
+# os.makedirs('output/least', exist_ok=True)
 # os.system('python RGAN.py --settings_file sepsis > ./output/least/train.txt')
 #
 # # with is like your try .. finally block in this case
@@ -130,7 +127,7 @@ import numpy as np
 #     train_file.writelines(train_data)
 #
 # print('Training:')
-# os.makedirs('output/all')
+# os.makedirs('output/all', exist_ok=True)
 # os.system('python RGAN.py --settings_file sepsis > ./output/all/train.txt')
 #
 # # with is like your try .. finally block in this case
@@ -188,7 +185,7 @@ for run in range(5):
         train_file.writelines(train_data)
 
     print('Training:')
-    os.makedirs('output/samples')
+    os.makedirs('output/samples', exist_ok=True)
     os.system('python RGAN.py --settings_file sepsis > ./output/samples/train_'+ str(run) + '.txt')
 
     # with is like your try .. finally block in this case
